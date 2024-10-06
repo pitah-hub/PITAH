@@ -47,6 +47,42 @@
         <input type="password" id="password" name="password" required><br><br>
 
         <input type="submit" value="Login">
+        <p>
+            <a href="#" id="forgotPassword">Forgot Password?</a>
+        </p>
+    
+        <div id="resetPasswordModal" style="display:none;">
+            <h2>Reset Password</h2>
+            <p>Please enter your email address to reset your password:</p>
+            <input type="email" id="resetEmail" required>
+            <button id="sendResetLink">Send Reset Link</button>
+            <button id="closeModal">Close</button>
+        </div>
+    
+        <script>
+            // Show the reset password modal
+            document.getElementById('forgotPassword').addEventListener('click', function(event) {
+                event.preventDefault();
+                document.getElementById('resetPasswordModal').style.display = 'block';
+            });
+    
+            // Close the modal
+            document.getElementById('closeModal').addEventListener('click', function() {
+                document.getElementById('resetPasswordModal').style.display = 'none';
+            });
+    
+            // Send reset link (this is a placeholder for actual logic)
+            document.getElementById('sendResetLink').addEventListener('click', function() {
+                const email = document.getElementById('resetEmail').value;
+                if (email) {
+                    // Here you would typically make an API call to send the reset link
+                    alert(`Reset link has been sent to ${email}.`);
+                    document.getElementById('resetPasswordModal').style.display = 'none';
+                } else {
+                    alert('Please enter a valid email address.');
+                }
+            });  
     </form>
+    
 </body>
 </html>
